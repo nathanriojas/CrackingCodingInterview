@@ -1,4 +1,13 @@
-#return overlap and volume
+# the following functions go through a given array from left to right and find the number of empty spaces between a maximum
+# on the left and right. The function used to do this only counts volume when there a definitive end on the right (i.e. the right bound
+# is greater than the left). Because it does not consider bounds where the left is greater than the right, this function must
+# be run again on the reverse of the given array. Adding the totals from each yields the total volume. If two bounds have the same max
+# an overlap value will be counted, since this would be counted twice during the final calculation. So the overlap is subtracted out.
+# The is done in O(n) time
+
+
+# go through the array and find the volume between each section where there are indices with boxes less that 
+# a set of boxes (on the left and right), where the right is greater than the left
 def left_to_right (arr):
     total_volume = 0
     left = 0  # left max index
@@ -29,8 +38,9 @@ def find_volume (arr):
     volume_Start_Right, overlap = left_to_right(arr[::-1])
     return volume_Start_Left + volume_Start_Right - overlap
 
-def main():
 
+def main():
+    #sample tests
     #box_array = [0,4,0,4,0,4,0]
     #box_array = [2,5,0,0,2,1,6,0,0,1,0,2,6,0,1,2,4,0,5]
     #box_array = [0,0,0,5,0,0,0]
