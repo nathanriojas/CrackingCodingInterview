@@ -20,12 +20,6 @@ class Stack (object):
   def isEmpty (self):
     return (len(self.stack) == 0)
 
-  def stackCreate(self):
-    print("CurrentStack:")
-    for el in self.stack:
-      print(el)
-    print("StackEnd")
-
 # Here is where my solution begins
 
 def sortStack(original):
